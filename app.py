@@ -7,20 +7,36 @@ import CloudGenerate as CG
 cg = CG.CloudGenerate()
 
 app = Flask(__name__)
+# treat a trailing slash as the same url, else /color works and /color/ 404's
+# see: https://stackoverflow.com/questions/33241050/trailing-slash-triggers-404-in-flask-path-rule/33285603
+app.url_map.strict_slashes = False
+
 api = Api(app)
 parser = reqparse.RequestParser()
+
 
 class Colors(Resource):
 	def __init__(self):
 		pass
 
-	def get(self):
+	def get(self, color_search=None):
 		colors = cg.color_list()
 		color_list = {'colors': []}
 		for c in colors:
-			color_list['colors'].append(c)
+			# search for the color if user specified
+			if color_search:
+				if color_search.lower() in c.lower():
+					color_list['colors'].append(c)
 
-		return color_list
+			else:
+				color_list['colors'].append(c)
+
+		if color_list['colors']:
+			return color_list, 200
+		else:
+			return {
+				'No Matching Colors': 'Color List Can Be Found: https://matplotlib.org/gallery/color/colormap_reference.html'
+			}, 204 # No content
 
 
 class MuhCloud(Resource):
@@ -34,15 +50,15 @@ class MuhCloud(Resource):
 
 		img = cg.make_cloud(args['terms'], cm=args['color'])
 
-		# checking type for errors. in the try block, return a tuple
-		# if an error happend: ('error', <The Error Message>)
+		# Checking type for errors. In the try block, return a tuple.
+		# If an error happend: ('error', <The Error Message>)
 		if type(img) is tuple:
 			return {img[0]: img[1]}
 		else:
 			return send_file(img, mimetype='image/jpeg')
 
 # Add the endpoints
-api.add_resource(Colors, '/colors')
+api.add_resource(Colors, '/colors', '/colors/<string:color_search>')
 api.add_resource(MuhCloud, '/cloud')
 
 # start in debug mode so we have live reloading on code changes
