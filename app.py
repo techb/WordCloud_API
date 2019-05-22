@@ -7,6 +7,7 @@ import CloudGenerate as CG
 cg = CG.CloudGenerate()
 
 app = Flask(__name__)
+
 # treat a trailing slash as the same url, else /color works and /color/ 404's
 # see: https://stackoverflow.com/questions/33241050/trailing-slash-triggers-404-in-flask-path-rule/33285603
 app.url_map.strict_slashes = False

@@ -25,19 +25,20 @@ But mostly I just wanted to get into API dev, and this is great for learning. Ha
 - **POST** /cloud
     - **BODY** `{"terms": "A big string of text to make cloud", "color": "Greens"}`
 
-### Examples
+## Examples
 ![Little Big Man Word Cloud Color List](https://kbcarte.com/wp-content/uploads/postman_full_color_list.jpg)
 
 ![Little Big Man Word Cloud Color Select List](https://kbcarte.com/wp-content/uploads/postman_select_color_list.jpg)
 
 ![Little Big Man Word Cloud Image](https://kbcarte.com/wp-content/uploads/postman_post_words.jpg)
 
-### TO-DO
+## TO-DO
 - **Image Masks** _(upload images to be masked against)_
 - **Custom Colors** _(trasnparent background, inherited masked text colors, other image formats, stop word filter)_
 - **Authentication** _(User profiles, OAuth support, voting?, mobile apps?)_
+- **Where is the Docker Files???** _Coming Soon, or make a Pull Request if you've made them_
 
-### Contact
+## Contact
 - https://kbcarte.com
 - contact@kbcarte.com
 - Pull Request
