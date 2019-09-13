@@ -1,6 +1,5 @@
 # WordCloud API
 API to generate word/tag clouds.
-_Blog post/tutorial coming soon._
 
 ## Why? It's 2019, tag clouds died with page hit counters...
 Great question! Because I've always liked them. Yes, they've been done _really_ wrong. But I feel they can still give a good sense of weight to a body of text or terms. By giving a visable difference of _weighted_ words, you can, at a quick glance, understand the what a blob of information is trying to portray.
