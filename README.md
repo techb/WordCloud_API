@@ -36,9 +36,3 @@ But mostly I just wanted to get into API dev, and this is great for learning. Ha
 - **Custom Colors** _(trasnparent background, inherited masked text colors, other image formats, stop word filter)_
 - **Authentication** _(User profiles, OAuth support, voting?, mobile apps?)_
 - **Where is the Docker Files???** _Coming Soon, or make a Pull Request if you've made them_
-
-## Contact
-- https://kbcarte.com
-- contact@kbcarte.com
-- Pull Request
-- Twitter: https://twitter.com/KBCarte42
